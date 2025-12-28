@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CU-CLA | Agentic Code Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="logo">CU-CLA</div>
+            <div class="subtitle">Agentic Code Assistant</div>
+        </div>
+        <div class="agent-status">
+            <div class="status-indicator"></div>
+            <span>Agent Ready</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <div class="panel-header">File Navigator</div>
+            <div id="fileTree"></div>
+        </div>
+
+        <div class="panel editor-panel">
+            <div class="panel-header">Code Editor</div>
+            <textarea id="editor"></textarea>
+        </div>
+
+        <div class="panel agent-panel">
+            <div class="panel-header">Agent Control</div>
+            <div class="agent-controls">
+                <div class="input-group">
+                    <label>LLM Provider</label>
+                    <select id="llmProvider">
+                        <option value="demo">Demo Mode (No API Key)</option>
+                        <option value="claude">Claude</option>
+                        <option value="chatgpt">ChatGPT</option>
+                        <option value="gemini">Gemini</option>
+                        <option value="llmstudio">LLM Studio (localhost:1234)</option>
+                    </select>
+                </div>
+
+                <div class="input-group" id="apiKeyGroup">
+                    <label>API Key</label>
+                    <input type="password" id="apiKey" placeholder="Enter API key">
+                </div>
+
+                <div class="input-group">
+                    <label>Task</label>
+                    <textarea id="agentTask" placeholder="Describe what you want the agent to do..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="runAgent()">Run Agent</button>
+                    <button class="btn-secondary" onclick="saveCode()">Save File</button>
+                </div>
+            </div>
+            <div class="panel-header" style="margin-top: 1rem;">Agent Output</div>
+            <div class="agent-output" id="agentOutput">
+                <div class="log-entry">
+                    <div class="log-time">System initialized</div>
+                    <div>Agent ready for tasks. Waiting for instructions...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/shell/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/matchbrackets.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
