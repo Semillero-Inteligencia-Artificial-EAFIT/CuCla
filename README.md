@@ -125,10 +125,6 @@ This is a project by EAFIT's AI Research Group (Semillero de Inteligencia Artifi
 
 Repository: https://github.com/Semillero-Inteligencia-Artificial-EAFIT/CuCla
 
-## License
 
-MIT
-
----
 
 **Made with ❤️ by Semillero de Inteligencia Artificial EAFIT**
